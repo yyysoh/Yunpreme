@@ -16,7 +16,7 @@ public class HomeController {
 //		//return ViewPath.MAIN + "index.jsp";
 //		return ViewPath.USER + "index.jsp";
 //	}
-	
+//	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String admin() {
 		return ViewPath.ADMIN + "index.jsp";

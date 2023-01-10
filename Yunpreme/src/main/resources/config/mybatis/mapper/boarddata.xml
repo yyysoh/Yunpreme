@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boarddata">
+
+	<select id="selectList" parameterType="int" resultType="boardData">
+		select * from boarddata bd
+		join member mem on bd.member_no = mem.member_no
+		where board_no = #{board_no}
+	</select>
+	
+	<insert id="insert" parameterType="boardData">
+		insert into boarddata values(boardData#{board_no}_seq.nextval, #{board_no}, #{member_no}, #{product_no}, #{bd_name}, #{bd_category}, #{bd_title}, #{bd_content}, #{bd_password}, sysdate)
+	</insert>
+	
+	<select id="selectOne" parameterType="int" resultType="boardData">
+		select * from boarddata
+		where bd_no = #{bd_no}
+	</select>
+	
+	<update id="update" parameterType="int">
+		
+	</update>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

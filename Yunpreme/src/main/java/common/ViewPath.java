@@ -6,8 +6,8 @@ public class ViewPath {
 	public static final String USER = "/WEB-INF/views/";
 	public static final String ADMIN = "/WEB-INF/views/admin/";
 	
-	// admin
+	
 	public static final String A_BOARD = ADMIN + "board/";
-
+	
 
 }
