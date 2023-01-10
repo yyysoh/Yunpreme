@@ -13,7 +13,6 @@
 	</bean>
 	
 	<!--sqlSession 설정 -->
-	<!--  -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="factoryBean" />
 	</bean>	

@@ -12,8 +12,17 @@
 		<typeAlias type="vo.BoardVo" alias="board"/>
 	</typeAliases> -->
 	
-<!-- 	<mappers>
-		sql작성된 파일 추가해주세요!
-		<mapper resource="config/mybatis/mapper/member.xml"/>
-	</mappers> -->
+	<!-- 230109 추가 -->
+	<typeAliases>
+		<typeAlias type="board.BoardVO" alias="board"/>
+		<typeAlias type="boarddata.BoardDataVO" alias="boardData"/>
+	</typeAliases>
+
+	
+ 	<mappers>
+		<!-- sql작성된 파일 추가해주세요!
+		<mapper resource="config/mybatis/mapper/member.xml"/> -->
+		<mapper resource="config/mybatis/mapper/board.xml"/>
+		<mapper resource="config/mybatis/mapper/boarddata.xml"/>
+	</mappers> 
 </configuration>
