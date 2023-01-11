@@ -5,23 +5,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="boarddata">
 
 	<select id="selectList" parameterType="int" resultType="boardData">
-		select * from boarddata bd
-		join member mem on bd.member_no = mem.member_no
+		select * from boarddata 
 		where board_no = #{board_no}
+		order by bd_no desc
 	</select>
-	
+
 	<insert id="insert" parameterType="boardData">
-		insert into boarddata values(boardData#{board_no}_seq.nextval, #{board_no}, #{member_no}, #{product_no}, #{bd_name}, #{bd_category}, #{bd_title}, #{bd_content}, #{bd_password}, sysdate)
-	</insert>
+		insert into boarddata values(boardData_seq.nextval, #{board_no}, #{member_no, jdbcType=VARCHAR}, #{product_no}, #{bd_name}, #{bd_category}, #{bd_title}, #{bd_content}, #{bd_password}, sysdate, #{bd_seq})
+    <selectKey resultType="int" keyProperty="bd_no" order="AFTER">
+        SELECT MAX(bd_no) FROM boarddata        
+    </selectKey>    
+	</insert>  
 	
 	<select id="selectOne" parameterType="int" resultType="boardData">
 		select * from boarddata
 		where bd_no = #{bd_no}
 	</select>
 	
-	<update id="update" parameterType="int">
-		
+	<select id="seqSelectOne" parameterType="int" resultType="boardData">
+		select max(bd_seq) as bd_seq from boarddata
+		where board_no = #{board_no}
+	</select>
+	 
+	<update id="update" parameterType="boardData">
+		update boarddata set bd_category = #{bd_category}, product_no = #{product_no}, bd_name = #{bd_name}, bd_content = #{bd_content}, bd_password = #{bd_password}
+		where board_no = #{board_no} and bd_no = #{bd_no}
 	</update>
+	
+	<delete id="delete" parameterType="boardData">
+		delete from boarddata 
+		where board_no = #{board_no} and bd_no = #{bd_no}
+	</delete>
 	
 	
 </mapper>

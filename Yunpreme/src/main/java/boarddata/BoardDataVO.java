@@ -16,7 +16,8 @@ public class BoardDataVO {
 	private Date bd_date;
 	
 	// --
-
+	private int bd_seq;
+	private String product_name;
 	
 	
 	public BoardDataVO() {
@@ -24,7 +25,7 @@ public class BoardDataVO {
 	}
 	
 	public BoardDataVO(int bd_no, int board_no, int member_no, int product_no, String bd_name, String bd_category, String bd_title, String bd_content,
-			int bd_password, Date bd_date) {
+			int bd_password, Date bd_date, int bd_seq, String product_name) {
 		super();
 		this.bd_no = bd_no;
 		this.board_no = board_no;
@@ -36,8 +37,11 @@ public class BoardDataVO {
 		this.bd_content = bd_content;
 		this.bd_password = bd_password;
 		this.bd_date = bd_date;
+		this.bd_seq = bd_seq;
+		this.product_name = product_name;
 	}
-	
+
+
 
 	public int getBd_no() {
 		return bd_no;
@@ -119,7 +123,22 @@ public class BoardDataVO {
 		this.bd_date = bd_date;
 	}
 	
+	public int getBd_seq() {
+		return bd_seq;
+	}
+	
+	public void setBd_seq(int bd_seq) {
+		this.bd_seq = bd_seq;
+	}
+	
+	
+	public String getProduct_name() {
+		return product_name;
+	}
 
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
 
 
 }

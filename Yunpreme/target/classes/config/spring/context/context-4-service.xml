@@ -7,5 +7,14 @@
 <!-- 	<bean id="tscService" class="ticketsubcategory.TicketSubCategoryService">
 		<constructor-arg ref="tscDao"/>
 	</bean> -->
+	
+	<bean id="boardService" class="board.BoardService">
+		<constructor-arg ref="boardDao"/>
+	</bean>
+	
+	<bean id="bdService" class="boarddata.BoardDataService">
+		<constructor-arg ref="bdDao" index="0"/>
+		<constructor-arg ref="boardDao" index="1"/>
+	</bean>
 
 </beans>

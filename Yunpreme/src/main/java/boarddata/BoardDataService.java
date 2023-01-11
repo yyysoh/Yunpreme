@@ -3,6 +3,7 @@ package boarddata;
 import java.util.List;
 
 import board.BoardDAO;
+import board.BoardVO;
 
 public class BoardDataService {
 	
@@ -22,19 +23,32 @@ public class BoardDataService {
 		return bdDao.selectOne(bd_no);
 	}
 	
-	public int update(int bd_no) {
-		return bdDao.update(bd_no);
-	}
-
 	public int insert(BoardDataVO bd) {
 		return bdDao.insert(bd);
 	}
 
-	// boardName 
+	// boardName
 	public String boardNameSelectOne(int board_no) {
 		return boardDao.boardNameSelectOne(board_no);
 	}
 
+	// boardNameList
+	public List<BoardVO> boardNameSelectList() {
+		return boardDao.boardNameSelectList();
+	}
+	
+	// seq 
+	public BoardDataVO seqSelectOne(int board_no) {
+		return bdDao.seqSelectOne(board_no);
+	}
+
+	public int update(BoardDataVO vo) {
+		return bdDao.update(vo);
+	}
+
+	public int delete(BoardDataVO vo) {
+		return bdDao.delete(vo);
+	}
 
 	
 	

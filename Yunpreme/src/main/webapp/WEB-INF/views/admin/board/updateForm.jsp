@@ -11,12 +11,10 @@ function checkWrite() {
 	
 	formData = new FormData(w);
 
-
 	/* else if(document.insert.product_name.value == ""){
 		alert("상품명을 입력하십시오!")
 		return;
 	} */
-	
 	if(document.insert.bd_name.value == ""){
 		alert("작성자를 입력하십시오!")
 		return;
@@ -53,47 +51,52 @@ function checkWrite() {
 }
 </script>
 <div align="center">
-	<form action="${ pageContext.request.contextPath }/admin/board/insert/${board_no}" method="post" id = "w" name = "insert" enctype="multipart/form-data">
-	
-		<c:set var="bd_seq" value="${vo.bd_seq + 1 }" />
-		<input type="hidden" name="bd_seq" value="${bd_seq }">
-		
+	<form action="${path}update/${vo.board_no}/${vo.bd_no}" method="post" id = "w" name = "insert" enctype="multipart/form-data">
 		<c:if test="${!empty board_no }">
-			<input type="hidden" name="board_no" value="${board_no }">
+			<input type="hidden" name="board_no" value="${vo.board_no }">
 		</c:if>
 		
 		<table class = "boardTable">
-			<c:if test="${board_no == 1 || board_no == 2 || board_no == 4 || board_no == 5 || board_no == 6 }">
-				<tr>
-					<th width="90">카테고리</th>
+			<tr>
+				<th width="90">카테고리</th>
 				<td>
 					<select name="bd_category">
-					    <option value="">=== 선택 안함 ===</option>
-						<c:forEach var="vo" items="${list }" >
-							<option value="${vo.board_name }">${vo.board_name }</option>
+						<c:if test="${vo.bd_category eq null}">
+							<option value="" selected>=== 선택 안함 ===</option>
+						</c:if>
+						<c:if test="${vo.bd_category ne null}">
+							<option value="" selected>=== 선택 안함 ===</option>
+						</c:if>
+						<c:forEach var="brd" items="${list }" >
+							<c:if test="${brd.board_name eq vo.bd_category}">
+								<option value="${brd.board_name }" selected>${brd.board_name }</option>
+							</c:if>
+							<c:if test="${brd.board_name ne vo.bd_category}">
+								<option value="${brd.board_name }">${brd.board_name }</option>
+							</c:if>
 						</c:forEach>
+						
 					</select>
 				</td>
-				</tr>
-			</c:if>
+			</tr>
 			<c:if test="${board_no == 8 || board_no == 9 || board_no == 10 || board_no == 11 }">
 				<tr>
 					<!-- 상품명 검색창에서 입력할 것 -->
 					<th width="90">상품명</th>
-					<td><input type="text" name="" size = "50"></td>
+					<td><input type="text" name="product_name" size = "50" value="${vo.product_name }"></td>
 				</tr>
 			</c:if>
 			<tr>
 				<th width="90">제목</th>
-				<td><input type="text" name="bd_title" size = "50" value="${board_name }" readonly="readonly"></td>
+				<td><input type="text" name="bd_title" size = "50" value="${vo.bd_title }" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<th width="90">작성자</th>
-				<td><input type="text" name="bd_name" size="10"></td>
+				<td><input type="text" name="bd_name" size="10" value="${vo.bd_name }"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<textarea class="summernote" rows="15" cols="65" name="bd_content"></textarea>
+					<textarea class="summernote" rows="15" cols="65" name="bd_content">${vo.bd_content }</textarea>
 				</td>
 			</tr>
 			<tr>
@@ -104,7 +107,7 @@ function checkWrite() {
 			</tr>
 			<tr>
 				<th width="90">비밀번호</th>
-				<td><input type="password" name="bd_password" size = "10"></td>
+				<td><input type="password" name="bd_password" size = "10" value="${vo.bd_password }"></td>
 			</tr>
 		</table>
 		<div class="btnBox">

@@ -21,13 +21,22 @@ public class BoardDataDAO {
 	public BoardDataVO selectOne(int bd_no) {
 		return sqlsession.selectOne("boarddata.selectOne", bd_no);
 	}
+
+	public BoardDataVO seqSelectOne(int board_no) {
+		return sqlsession.selectOne("boarddata.seqSelectOne", board_no);
+	}
 	
-	public int update(int bd_no) {
-		return sqlsession.update("boarddata.update", bd_no);
+	public int insert(BoardDataVO bd) {
+		sqlsession.insert("boarddata.insert", bd);
+		return bd.getBd_no();
 	}
 
-	public int insert(BoardDataVO bd) {
-		return sqlsession.insert("boarddata.insert", bd);
+	public int update(BoardDataVO vo) {
+		return sqlsession.update("boarddata.update", vo);
+	}
+
+	public int delete(BoardDataVO vo) {
+		return sqlsession.delete("boarddata.delete", vo);
 	}
 
 

@@ -44,5 +44,9 @@
 		<beans:constructor-arg  ref="tscService"/>
 	</beans:bean> -->
 	
+	<beans:bean class="controller.BoardDataController">
+		<beans:constructor-arg  ref="bdService"/>
+	</beans:bean>
+	
 	
 </beans:beans>

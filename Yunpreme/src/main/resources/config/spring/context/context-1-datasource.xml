@@ -19,6 +19,6 @@
 		<property name="username" value="${user}"/>
 		<property name="password" value="${password}"/>
 		<property name="defaultAutoCommit" value="false"/>
-		<property name="maxTotal" value="10"/>
+		<property name="maxTotal" value="1"/>
 	</bean>
 </beans>

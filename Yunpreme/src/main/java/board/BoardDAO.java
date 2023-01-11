@@ -18,5 +18,9 @@ public class BoardDAO {
 		return sqlsession.selectOne("board.boardNameSelectOne", board_no);
 	}
 
+	public List<BoardVO> boardNameSelectList() {
+		return sqlsession.selectList("board.boardNameSelectList");
+	}
+
 
 }

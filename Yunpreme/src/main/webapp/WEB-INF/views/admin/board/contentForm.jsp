@@ -4,6 +4,7 @@
 <%@ include file="/WEB-INF/views/admin/layout/headerAdmin.jsp" %>
 <div align="center">
 	<table class="boardTable">
+
 		<tr>
 			<th>제목</th>
 			<td>${vo.bd_title }</td>

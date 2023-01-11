@@ -8,12 +8,16 @@
 		<setting name="defaultExecutorType" value="REUSE" />
 	</settings>
 	
-<!-- 	<typeAliases>
-		<typeAlias type="vo.BoardVo" alias="board"/>
-	</typeAliases> -->
+ 	<typeAliases>
+		<!--<typeAlias type="vo.BoardVo" alias="board"/>-->
+		<typeAlias type="board.BoardVO" alias="board"/>
+		<typeAlias type="boarddata.BoardDataVO" alias="boarddata"/>
+	</typeAliases> 
 	
-<!-- 	<mappers>
-		sql작성된 파일 추가해주세요!
-		<mapper resource="config/mybatis/mapper/member.xml"/>
-	</mappers> -->
+ 	<mappers>
+		<!--sql작성된 파일 추가해주세요!
+		<mapper resource="config/mybatis/mapper/member.xml"/> -->
+		<mapper resource="config/mybatis/mapper/board.xml"/>
+		<mapper resource="config/mybatis/mapper/boarddata.xml"/>
+	</mappers>
 </configuration>

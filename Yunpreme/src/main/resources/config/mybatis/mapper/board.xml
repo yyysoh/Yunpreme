@@ -9,6 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where board_no = #{board_no}
 	</select>
 	
+	<select id="boardNameSelectList" resultType="board">
+		select * from board
+	</select>
+	
 </mapper>
 
 

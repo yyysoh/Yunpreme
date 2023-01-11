@@ -5,6 +5,10 @@ public class BoardVO {
 	private int board_no;
 	private String board_name;
 	
+	public BoardVO() {
+		
+	}
+	
 	public BoardVO(int board_no, String board_name) {
 		super();
 		this.board_no = board_no;
